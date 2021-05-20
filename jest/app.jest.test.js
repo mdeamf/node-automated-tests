@@ -59,3 +59,15 @@ test('[STRING] "your name" doesnt contain "my" but contains "name"', () => {
   expect(result).not.toMatch(/my/gm);
   expect(result).toMatch(/name/gm);
 });
+
+test('[CALLBACK] run callback', (done) => {
+  app.runCallback((data) => {
+    expect(data).toMatch('potato');
+    done();
+  });
+});
+
+test('[PROMISE] run promise', async () => {
+  const data = await app.runPromise('potato');
+  expect(data).toMatch('potato');
+});
