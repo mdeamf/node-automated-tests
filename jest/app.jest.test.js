@@ -1,5 +1,22 @@
 const app = require('./app.jest');
-console.log(app);
+
+let testCount = 0;
+beforeAll(() => {
+  console.log('[INITIATING TESTS] Current Count', testCount);
+});
+
+beforeEach(() => {
+  console.log('[BEFORE TEST] Current Count', testCount);
+});
+
+afterEach(() => {
+  testCount++;
+  console.log('[AFTER TEST] Current Count', testCount);
+});
+
+afterAll(() => {
+  console.log('[ENDING TESTS] Current Count', testCount);
+});
 
 test('[NUMBER] 1 + 2 = 3', () => {
   const result = app.sumNumbers(1, 2);
