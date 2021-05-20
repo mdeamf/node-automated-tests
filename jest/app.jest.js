@@ -12,4 +12,12 @@ const runCallback = (cbk) => {
   }, 2000);
 };
 
-module.exports = { sumNumbers, concatStrings, runCallback };
+const runPromise = (value) => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(value);
+    }, 2000);
+  });
+};
+
+module.exports = { sumNumbers, concatStrings, runCallback, runPromise };
