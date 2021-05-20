@@ -1,4 +1,5 @@
-const app = require('./app');
+const app = require('./app.jest');
+console.log(app);
 
 test('[NUMBER] 1 + 2 = 3', () => {
   const result = app.sumNumbers(1, 2);
