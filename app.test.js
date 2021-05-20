@@ -29,3 +29,15 @@ test('[NUMBER] 50 + 40 <= 100', () => {
   const result = app.sumNumbers(50, 40);
   expect(result).toBeLessThanOrEqual(100);
 });
+
+test('[STRING] "my name" contains "my" and "name"', () => {
+  const result = app.concatStrings('my', 'name');
+  expect(result).toMatch(/my/gm);
+  expect(result).toMatch(/name/gm);
+});
+
+test('[STRING] "your name" doesnt contain "my" but contains "name"', () => {
+  const result = app.concatStrings('your', 'name');
+  expect(result).not.toMatch(/my/gm);
+  expect(result).toMatch(/name/gm);
+});
